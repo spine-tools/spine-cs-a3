@@ -1,0 +1,526 @@
+{
+    "project": {
+        "version": 6,
+        "name": "DistrictHeating",
+        "description": "",
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/convert_unit_data.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/convert_model_data.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/spineopt.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/convert_results.json"
+                }
+            ],
+            "Importer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/unit_data_import.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/create_time_series.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/create_heat_storage.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Importer/create_model_data.json"
+                }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/unit_flow.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Exporter/export_input.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "from": [
+                    "Importer Unit Data",
+                    "right"
+                ],
+                "to": [
+                    "Input",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Importer Time Series",
+                    "right"
+                ],
+                "to": [
+                    "Input",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Importer Model Data",
+                    "right"
+                ],
+                "to": [
+                    "Input",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Data Units",
+                    "right"
+                ],
+                "to": [
+                    "Convert Unit Data",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Model Data",
+                    "right"
+                ],
+                "to": [
+                    "Convert model data",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Data Time Series",
+                    "right"
+                ],
+                "to": [
+                    "Convert model data",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Data Units",
+                    "right"
+                ],
+                "to": [
+                    "Convert model data",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Convert Unit Data",
+                    "right"
+                ],
+                "to": [
+                    "Importer Unit Data",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Convert model data",
+                    "right"
+                ],
+                "to": [
+                    "Importer Model Data",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Convert model data",
+                    "right"
+                ],
+                "to": [
+                    "Importer Time Series",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Base",
+                    "right"
+                ],
+                "to": [
+                    "Input",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Input",
+                    "right"
+                ],
+                "to": [
+                    "Run SpineOpt 1",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Run SpineOpt 1",
+                    "right"
+                ],
+                "to": [
+                    "Output",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Exporter",
+                    "bottom"
+                ],
+                "to": [
+                    "Convert Results",
+                    "right"
+                ]
+            },
+            {
+                "from": [
+                    "Data Units",
+                    "right"
+                ],
+                "to": [
+                    "Convert Results",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Output",
+                    "right"
+                ],
+                "to": [
+                    "Exporter",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Input",
+                    "bottom"
+                ],
+                "to": [
+                    "Exporter Input",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Exporter Input",
+                    "bottom"
+                ],
+                "to": [
+                    "Convert Results",
+                    "left"
+                ]
+            },
+            {
+                "from": [
+                    "Out Template",
+                    "right"
+                ],
+                "to": [
+                    "Output",
+                    "left"
+                ]
+            }
+        ],
+        "jumps": []
+    },
+    "items": {
+        "Input": {
+            "type": "Data Store",
+            "description": "",
+            "x": 162.38352387959227,
+            "y": -44.23477596593287,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/input/Input.sqlite"
+                }
+            },
+            "cancel_on_error": false
+        },
+        "Output": {
+            "type": "Data Store",
+            "description": "",
+            "x": 493.08857908768846,
+            "y": -34.081646484708806,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/output/Output.sqlite"
+                }
+            },
+            "cancel_on_error": false
+        },
+        "Base": {
+            "type": "Data Store",
+            "description": "",
+            "x": 62.84955345207341,
+            "y": -209.61037227151544,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/base/Base.sqlite"
+                }
+            },
+            "cancel_on_error": false
+        },
+        "Data Units": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -624.1238737742676,
+            "y": 210.2990353224207,
+            "references": []
+        },
+        "Model Data": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -630.295306604637,
+            "y": -171.58218174125028,
+            "references": []
+        },
+        "Data Time Series": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -627.1940456232973,
+            "y": -47.53174248766601,
+            "references": []
+        },
+        "Run SpineOpt 1": {
+            "type": "Tool",
+            "description": "",
+            "x": 341.0593464631001,
+            "y": -38.385558254331094,
+            "specification": "Run SpineOpt",
+            "execute_in_work": false,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@Input"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Output"
+                }
+            ],
+            "options": {
+                "julia_sysimage": ""
+            }
+        },
+        "Convert Unit Data": {
+            "type": "Tool",
+            "description": "",
+            "x": -305.89239253515433,
+            "y": 108.90588641687653,
+            "specification": "Convert Unit Data",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "unit_parameters.csv"
+                }
+            ]
+        },
+        "Convert model data": {
+            "type": "Tool",
+            "description": "",
+            "x": -304.6629035639783,
+            "y": -90.9493962264205,
+            "specification": "Convert model data",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "model_data.xlsx"
+                },
+                {
+                    "type": "resource",
+                    "arg": "unit_parameters.csv"
+                },
+                {
+                    "type": "resource",
+                    "arg": "time_series.csv"
+                }
+            ]
+        },
+        "Importer Unit Data": {
+            "type": "Importer",
+            "description": "",
+            "x": -80.5005661786469,
+            "y": 81.51591145516399,
+            "specification": "Unit_data_import",
+            "cancel_on_error": false,
+            "file_selection": [
+                [
+                    "unit_parameters_spine.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Importer Time Series": {
+            "type": "Importer",
+            "description": "",
+            "x": -84.44226826162142,
+            "y": -32.93776404270141,
+            "specification": "Create Time Series",
+            "cancel_on_error": false,
+            "file_selection": [
+                [
+                    "time_series_spine.csv",
+                    true
+                ],
+                [
+                    "model_data_spine.xlsx",
+                    false
+                ]
+            ]
+        },
+        "Importer Model Data": {
+            "type": "Importer",
+            "description": "",
+            "x": -87.1428406832128,
+            "y": -137.19093430906798,
+            "specification": "Create Model Data",
+            "cancel_on_error": false,
+            "file_selection": [
+                [
+                    "time_series_spine.csv",
+                    false
+                ],
+                [
+                    "model_data_spine.xlsx",
+                    true
+                ]
+            ]
+        },
+        "Exporter": {
+            "type": "Exporter",
+            "description": "",
+            "x": 628.6237331232971,
+            "y": 86.35768299827674,
+            "databases": [
+                {
+                    "output_file_name": "results.xlsx",
+                    "database_url": {
+                        "type": "file_url",
+                        "relative": true,
+                        "path": ".spinetoolbox/items/output/Output.sqlite",
+                        "scheme": "sqlite"
+                    }
+                }
+            ],
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "specification": "unit_flow"
+        },
+        "Convert Results": {
+            "type": "Tool",
+            "description": "",
+            "x": 437.359606251262,
+            "y": 213.61037227151536,
+            "specification": "Convert Results",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "results.xlsx"
+                },
+                {
+                    "type": "resource",
+                    "arg": "C:\\Users\\Christian\\Desktop\\EN2911 - Individual Project\\EN2911DistrictHeating\\Parameter\\unit_parameters.csv"
+                },
+                {
+                    "type": "resource",
+                    "arg": "input_series.xlsx"
+                }
+            ]
+        },
+        "Exporter Input": {
+            "type": "Exporter",
+            "description": "",
+            "x": 269.6094357420416,
+            "y": 75.08340141999338,
+            "databases": [
+                {
+                    "output_file_name": "input_series.xlsx",
+                    "database_url": {
+                        "type": "file_url",
+                        "relative": true,
+                        "path": ".spinetoolbox/items/input/Input.sqlite",
+                        "scheme": "sqlite"
+                    }
+                }
+            ],
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "specification": "Export Input"
+        },
+        "Out Template": {
+            "type": "Data Store",
+            "description": "",
+            "x": 341.7042901207947,
+            "y": -209.0181255754555,
+            "url": {
+                "dialect": "sqlite",
+                "username": "",
+                "password": "",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/out_template/Out Template.sqlite"
+                }
+            },
+            "cancel_on_error": false
+        }
+    }
+}

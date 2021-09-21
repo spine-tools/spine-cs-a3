@@ -1,0 +1,14 @@
+{
+    "name": "Convert Unit Parameter",
+    "tooltype": "python",
+    "includes": [
+        "convert_unit_parameter.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "execute_in_work": false,
+    "includes_main_path": "../../.."
+}

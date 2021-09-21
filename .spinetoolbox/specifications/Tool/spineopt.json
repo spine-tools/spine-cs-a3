@@ -1,0 +1,14 @@
+{
+    "name": "SpineOpt",
+    "tooltype": "julia",
+    "includes": [
+        "run_spine_opt.jl"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "execute_in_work": true,
+    "includes_main_path": "../../.."
+}
