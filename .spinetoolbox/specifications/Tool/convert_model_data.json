@@ -7,13 +7,13 @@
     "description": "",
     "inputfiles": [
         "time_series.csv",
-        "unit_parameters.csv",
-        "model_data.xlsx"
+        "model_data.xlsx",
+        "unit_parameters.csv"
     ],
     "inputfiles_opt": [],
     "outputfiles": [
-        "time_series_spine.csv",
-        "model_data_spine.xlsx"
+        "model_data_spine.xlsx",
+        "time_series_spine.csv"
     ],
     "cmdline_args": [],
     "execute_in_work": true,
