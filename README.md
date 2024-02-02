@@ -1,4 +1,6 @@
 # spine-cs-a3
+** This repository is archived and no longer maintained. You may run into issues.**
+
 Case study A3: District heating study of Stockholm
 
 ## License and Terms of Use
